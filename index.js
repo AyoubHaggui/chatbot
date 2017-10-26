@@ -3,6 +3,7 @@ var express = require('express')
 var request = require('./request/textMessage')
 const bodyparser = require ("body-parser")
 var profileapi = require('./API/facebook/getUserDetails')
+// var message_db = require('./database/messages/CURD')
 
 const app = express()
 app.use(bodyparser.urlencoded({extended: false}))
@@ -34,12 +35,23 @@ async function channel(req, res){
 				}catch(e){
 					console.log(e)
 				}
+				let messageDetails = getMessageDetails(req.body.entry[event].messaging[message])
+				console.log(messageDetails)
+
 			}
 		}
 	}
 	res.sendStatus(200)
 }
 
+function getMessageDetails(messaging){
+	let message = {
+		mid: messaging.message.mid,
+		timestamp: messaging.timestamp,
+		text: messaging.message.text
+	}
+	return(message)
+}
 
 
 app.listen(app.get('port'), function(err){
