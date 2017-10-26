@@ -12,7 +12,6 @@ exports.textMessage = async function(messaging){
 	console.log(messaging)
 	var sender= messaging.sender.id
 	var message=messaging.message.text
-	var timestamp = messaging.timestamp
 	try{
 		var response = await ai.analyse(sender ,message)
 	}
