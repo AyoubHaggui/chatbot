@@ -24,24 +24,68 @@ app.post('/webhook', channel)
  * @param  {JSON} res response
  */
 async function channel(req, res){
-	for(var event=0; event<req.body.entry.length; event++){
-		if (req.body.entry[event].messaging){ //Case of text message
-			for(let message=0; message<req.body.entry[event].messaging.length; message++){
+	let events_loop = req.body.entry
+	let events = eventsGenerator(events_loop)
+	let event_object = events.next()
+	while(!event_object.done){
+		let event = event_object.value
+		let webhook_event = readWebhookEvent(event)
+		if (webhook_event == 'messaging'){ //Case of text message
+			let messages_loop = event.messaging
+			let messages = messagesGenerator(messages_loop)
+			let message_object = messages.next()
+			while(!message_object.done){
 				//Send the text message to the handling function
-				request.textMessage(req.body.entry[event].messaging[message]);
-				let PSID = req.body.entry[event].messaging[message].sender.id
+				let message = message_object.value
+				request.textMessage(message);
+				let PSID = message.sender.id
 				try{
 					var senderDetails = await profileapi.getUserDetails(PSID)
 				}catch(e){
 					console.log(e)
 				}
-				let messageDetails = getMessageDetails(req.body.entry[event].messaging[message])
+				let messageDetails = getMessageDetails(message)
 				console.log(messageDetails)
-
+				message_object = messages.next()
 			}
 		}
+		event_object = events.next()
 	}
 	res.sendStatus(200)
+}
+/**
+ * Extract the webhook type
+ * @param  {object} event event content
+ * @return {String}       event type
+ */	
+function readWebhookEvent(event){
+	if(event.messaging) return('messaging')
+}
+/**
+ * Loops over the messages
+ * @param {object} messaging     array of messages
+ * @yield {object} current message object
+ */
+function *messagesGenerator(messaging){
+	let message = 0
+	while(messaging[message]){
+		yield messaging[message]
+		message++
+	}
+	return
+}
+/**
+ * Loops over the events
+ * @param {object} entry         array of events
+ * @yield {object} current event object
+ */
+function *eventsGenerator(entry){
+	let event = 0
+	while(entry[event]){
+		yield entry[event]
+		event++
+	}
+	return
 }
 
 function getMessageDetails(messaging){

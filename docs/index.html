@@ -35,6 +35,36 @@
               
                 
                 <li><a
+                  href='#readwebhookevent'
+                  class="">
+                  readWebhookEvent
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#messagesgenerator'
+                  class="">
+                  messagesGenerator
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#eventsgenerator'
+                  class="">
+                  eventsGenerator
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#textmessage'
                   class="">
                   textMessage
@@ -48,6 +78,16 @@
                   href='#analyse'
                   class="">
                   analyse
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#getuserdetails'
+                  class="">
+                  getUserDetails
                   
                 </a>
                 
@@ -107,6 +147,197 @@
           <div>
             <span class='code bold'>res</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">JSON</a>)</code>
 	    response
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='readwebhookevent'>
+      readWebhookEvent
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Extract the webhook type</p>
+
+
+  <div class='pre p1 fill-light mt0'>readWebhookEvent(event: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>event</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    event content
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>:
+        event type
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='messagesgenerator'>
+      messagesGenerator
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Loops over the messages</p>
+
+
+  <div class='pre p1 fill-light mt0'>messagesGenerator(messaging: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>messaging</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    array of messages
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='eventsgenerator'>
+      eventsGenerator
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Loops over the events</p>
+
+
+  <div class='pre p1 fill-light mt0'>eventsGenerator(entry: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>entry</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    array of events
 
           </div>
           
@@ -248,6 +479,75 @@
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getuserdetails'>
+      getUserDetails
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Uses facebook API to request details about the user</p>
+
+
+  <div class='pre p1 fill-light mt0'>getUserDetails(PSID: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>PSID</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    user unique id
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        a promise that resolves with the user details
+
+      
+    
   
 
   
