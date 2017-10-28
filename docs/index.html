@@ -93,6 +93,26 @@
                 
                 </li>
               
+                
+                <li><a
+                  href='#create'
+                  class="">
+                  create
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#connect'
+                  class="">
+                  connect
+                  
+                </a>
+                
+                </li>
+              
             </ul>
           </div>
           <div class='mt1 h6 quiet'>
@@ -189,7 +209,7 @@
   <p>Extract the webhook type</p>
 
 
-  <div class='pre p1 fill-light mt0'>readWebhookEvent(event: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
+  <div class='pre p1 fill-light mt0'>readWebhookEvent(event: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></div>
   
   
 
@@ -206,7 +226,7 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>event</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>event</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    event content
 
           </div>
@@ -258,7 +278,7 @@
   <p>Loops over the messages</p>
 
 
-  <div class='pre p1 fill-light mt0'>messagesGenerator(messaging: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
+  <div class='pre p1 fill-light mt0'>messagesGenerator(messaging: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
   
   
 
@@ -275,7 +295,7 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>messaging</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>messaging</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    array of messages
 
           </div>
@@ -319,7 +339,7 @@
   <p>Loops over the events</p>
 
 
-  <div class='pre p1 fill-light mt0'>eventsGenerator(entry: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
+  <div class='pre p1 fill-light mt0'>eventsGenerator(entry: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
   
   
 
@@ -336,7 +356,7 @@
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>entry</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+            <span class='code bold'>entry</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
 	    array of events
 
           </div>
@@ -548,6 +568,114 @@
 
       
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='create'>
+      create
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Add new message to database</p>
+
+
+  <div class='pre p1 fill-light mt0'>create(message_details: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>message_details</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
+	    The new message key/fields pairs
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='connect'>
+      connect
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Generates database connection and diconnects on process termination</p>
+
+
+  <div class='pre p1 fill-light mt0'>connect()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
   
 
   

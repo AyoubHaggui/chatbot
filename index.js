@@ -3,7 +3,11 @@ var express = require('express')
 var request = require('./request/textMessage')
 const bodyparser = require ("body-parser")
 var profileapi = require('./API/facebook/getUserDetails')
-// var message_db = require('./database/messages/CURD')
+var message_db = require('./database/messages/CRUD')
+// var users_db = require('./database/users/CRUD')
+var connection = require('./database/connection')
+//Open database connection
+connection.connect()
 
 const app = express()
 app.use(bodyparser.urlencoded({extended: false}))
@@ -35,17 +39,20 @@ async function channel(req, res){
 			let messages = messagesGenerator(messages_loop)
 			let message_object = messages.next()
 			while(!message_object.done){
-				//Send the text message to the handling function
 				let message = message_object.value
+				//Send the text message to the handling function
 				request.textMessage(message);
 				let PSID = message.sender.id
+				//Extract message details
+				let messageDetails = getMessageDetails(message)
+				//Query sender deatils
 				try{
 					var senderDetails = await profileapi.getUserDetails(PSID)
 				}catch(e){
 					console.log(e)
 				}
-				let messageDetails = getMessageDetails(message)
-				console.log(messageDetails)
+				// messages_database.create(senderDetails, messageDetails)
+				message_db.create(messageDetails)
 				message_object = messages.next()
 			}
 		}
@@ -55,7 +62,7 @@ async function channel(req, res){
 }
 /**
  * Extract the webhook type
- * @param  {object} event event content
+ * @param  {Object} event event content
  * @return {String}       event type
  */	
 function readWebhookEvent(event){
@@ -63,8 +70,8 @@ function readWebhookEvent(event){
 }
 /**
  * Loops over the messages
- * @param {object} messaging     array of messages
- * @yield {object} current message object
+ * @param {Object} messaging     array of messages
+ * @yield {Object} current message object
  */
 function *messagesGenerator(messaging){
 	let message = 0
@@ -76,8 +83,8 @@ function *messagesGenerator(messaging){
 }
 /**
  * Loops over the events
- * @param {object} entry         array of events
- * @yield {object} current event object
+ * @param {Object} entry         array of events
+ * @yield {Object} current event object
  */
 function *eventsGenerator(entry){
 	let event = 0

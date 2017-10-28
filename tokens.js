@@ -1,3 +1,4 @@
 exports = module.exports = {}
-exports.facebookToken = 'EAAZARyKlFnZBoBABiDkpG3E7ZBZARZAqCF9QMRLSlbWIW3O1YQDt83T1508x1F14hWpw13UeZA9ucxgs2pFiXTRcs7M8BZAfSCysjduMfjkZAMFz0yHQZAOA59KiI8xt8DnUVqnj55fQC6kSe8LOl1Ltk18dpOZCI1QULjdDvT07l3WT3KTPVoinGX'
+exports.facebookToken = process.env.FB_PAGE_ACCESS_TOKEN
 exports.apiToken = '8cac96b981e441f489cfabee2558319a'
+exports.db = 'mongodb://localhost/testing_db'
