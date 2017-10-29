@@ -4,7 +4,7 @@ var request = require('./request/textMessage')
 const bodyparser = require ("body-parser")
 var profileapi = require('./API/facebook/getUserDetails')
 var message_db = require('./database/messages/CRUD')
-// var users_db = require('./database/users/CRUD')
+var users_db = require('./database/users/CRUD')
 var connection = require('./database/connection')
 //Open database connection
 connection.connect()
@@ -51,7 +51,7 @@ async function channel(req, res){
 				}catch(e){
 					console.log(e)
 				}
-				// messages_database.create(senderDetails, messageDetails)
+				users_db.create(senderDetails, messageDetails)
 				message_db.create(messageDetails)
 				message_object = messages.next()
 			}
