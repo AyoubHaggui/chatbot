@@ -10,19 +10,19 @@ var userSchema = new schema({
 	timezone: String,
 	gender: String,
 	messages: [String]
-})
+}, {collection: 'user'})
 
 var messageSchema = new schema({
 	mid : String,
 	timestamp : Date,
 	text : String,
-})
+}, {collection: 'message'})
 
 var responseSchema = new schema({
 	mid: String,
 	timestamp: Date,
 	text: String 
-})
+}, {collection: 'response'})
 
 var citySchema = new schema({
 	id: Number,
@@ -32,7 +32,7 @@ var citySchema = new schema({
 		lon: Number,
 		lat: Number
 	}
-})
+}, {collection: 'city'})
 
 module.exports.citySchema = citySchema
 module.exports.userSchema = userSchema

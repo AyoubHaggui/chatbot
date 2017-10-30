@@ -31,6 +31,9 @@ async function create(){
 	}
 	else console.log('City database up to date');
 }
+// function read(city_name){
+
+// }
 /**
  * Iterate over the list of cities from reference file 
  * @yield {object} City object out of the pool
@@ -45,8 +48,12 @@ function *cityGenerator(){
 	}
 	return
 }
+/**
+ * Look for cities collection in he current database
+ * @return {object} Resolves with true if the cities collection exists
+ */
 function cityCollectionExists(){
-	return mongoose.connection.db.listCollections({name: 'cities'}).toArray().then(function(names){
+	return mongoose.connection.db.listCollections({name: 'city'}).toArray().then(function(names){
 		return Promise.resolve(names.length > 0)
 	}).catch(function(){
 		return Promise.reject(error)
