@@ -6,6 +6,7 @@ module.exports.connect = connect
  * Generates database connection and diconnects on process termination
  */
 function connect(){ 
+	mongoose.Promise = global.Promise
 	mongoose.connect(dbURL, {
 		useMongoClient: true
 	})
