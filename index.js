@@ -18,7 +18,7 @@ app.get('/webhook', function(req, res){
 	if(req.query['hub.verify_token']==='adja_souris_arajel') {
 		res.send(req.query['hub.challenge'])
 	}
-	else res.send("mors 7mir")
+	else res.send("verify_token")
 })
 
 app.post('/webhook', channel)
