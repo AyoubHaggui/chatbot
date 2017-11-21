@@ -15,7 +15,7 @@ app.use(bodyparser.json())
 app.set('port', 5000)
 
 app.get('/webhook', function(req, res){
-	if(req.query['hub.verify_token']==='adja_souris_arajel') {
+	if(req.query['hub.verify_token']==='verify_me') {
 		res.send(req.query['hub.challenge'])
 	}
 	else res.send("verify_token")
